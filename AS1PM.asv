@@ -98,9 +98,9 @@ while true
     end
     happy_agents = sum(happy_array & (grid_array ~= 2), 'all');
     percentage_happiness = (happy_agents/(count_0 + count_1))*100.;
-    if( counter>501)
+    if( counter>)
         count_previous_happines=0;
-        for iter=length(happy_array_over_iters)-500:length(happy_array_over_iters)-1
+        for iter=length(happy_array_over_iters)-200:length(happy_array_over_iters)-1
             if(happy_array_over_iters(iter) >= percentage_happiness)
                 count_previous_happines=count_previous_happines+1;
             end
@@ -111,7 +111,7 @@ while true
     if(mod(counter, 400)==0 && percentage_happiness>60.)
         fprintf("percentage of happiness: %.2f\r\n", percentage_happiness);
     end
-    if(count_previous_happines>450)
+    if(count_previous_happines>180)
         disp("Applying early stopping");
         fprintf( "percentage of happiness: %.2f\r\n", percentage_happiness);
         break;
@@ -193,9 +193,6 @@ end
 
 figure
 plot(happy_array_over_iters);
-title('Happiness over iterations')
-xlabel("Iterations")
-ylabel("happiness")
 grid on;
 
 
