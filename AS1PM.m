@@ -200,7 +200,7 @@ title('Happiness over iterations')
 xlabel("Iterations")
 ylabel("happiness")
 grid on;
-saveas(gcf,sprintf('Convergence/ConvergenceH%dRandom_%d', H, RANDOM))
+saveas(gcf,sprintf('Convergence/ConvergenceH%dRandom_%d.png', H, RANDOM))
 
 
 function [] = save_grid(results_dict, counter, RANDOM, H)
