@@ -1,2 +1,2 @@
-# AS1PM
-Matlab code
+# Assignment 1 Particle Mathods
+@author: Filippo Casari
