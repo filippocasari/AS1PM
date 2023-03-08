@@ -11,17 +11,22 @@ RANDOM = logical(input("Random search or not (press 1 or 0): "));
 
 
 H = input("Insert value for H: ");
+if(H<1)
+    fprintf("Value of H not allowed\n");
+    return 
+end
 SAVE_PICTURE=logical(input("Save picture or not (press 1 or 0): "));
 for i = 1:ROWS
 row = randsample(candidates, COLS, true, weights);
 count_0 = count_0 + sum(row == 0);
 count_1 = count_1 + sum(row == 1);
 count_2 = count_2 + sum(row == 2);
-disp(row)
+%disp(row);
 grid_array(i, :) = row;
 end
 
 h=imagesc(grid_array);
+title('Initial condition')
 
 
 % set the color map to display 0s as black, 1s as red, and 2s as green
@@ -32,7 +37,7 @@ colorbar;
 disp(['number of reds: ', num2str(count_0)]);
 disp(['number of blue: ', num2str(count_1)]);
 disp(['number of empty: ', num2str(count_2)]);
-
+pause(4);
 happy_array=zeros(ROWS, COLS);
 for i = 1:ROWS
     for j = 1:COLS
