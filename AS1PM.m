@@ -34,6 +34,9 @@ colormap([1 0 0; 0 1 0;0 0 0]);
 
 % add a colorbar to show the mapping of values to colors
 colorbar;
+if(SAVE_PICTURE)
+    saveas(gcf,sprintf('Initial_Condition_%d.png', H))
+end
 disp(['number of reds: ', num2str(count_0)]);
 disp(['number of blue: ', num2str(count_1)]);
 disp(['number of empty: ', num2str(count_2)]);
@@ -126,6 +129,7 @@ while true
         break;
     end
     if (happy_agents == (count_0 + count_1))
+        fprintf( "percentage of happiness: %.2f\r\n", percentage_happiness);
         if(SAVE_PICTURE)
             save_grid(results_dict, counter, RANDOM, H);
         end
